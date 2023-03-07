@@ -1,27 +1,33 @@
 import './App.css';
+import Home from './menu/Home'
+import Navigation from './Navigation';
+import {Routes, Route} from 'react-router-dom';
+import WerehouseDelivery from './menu/TAG/WerehouseDelivery';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+      <Navigation/>
+    <Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route index element={<Home/>}/>
+          <Route exact path="werehouseDelivery" element={<WerehouseDelivery/>}/>
+          {/* <Route path="/create">
+            <Create/>
+          </Route>
+          <Route path="/getBlog/:id">
+            <DetailBlog/>
+          </Route>
+          <Route path="/login">
+            <Login/>
+          </Route> 
+           <Route path="/generateCode">
+            <GenerateCode/>
+          </Route> 
+          <Route path="*">
+            <NotFound/>
+          </Route> */}
+    </Routes>
     </div>
   );
 }
