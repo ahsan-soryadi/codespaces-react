@@ -1,0 +1,6 @@
+Tables :
+User : id user name, password, dll
+barang :id, serial number, nama barang, produck series
+jenis barang : id, nama, stok
+pengiriman : id, pengirim, gudang penerima, gudang pengirim, tanggal, no hp pengirim, tipe pengiriman(expedisi, non ekspedisi), kuantiti, jasa pengiriman, serial number barang, status 
+ 
