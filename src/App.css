@@ -29,6 +29,12 @@ body {
   text-align: center;
 }
 
+/* .sidenav-container {
+  height: 100%;
+  float: left;
+  overflow: auto;
+} */
+
 .sidenav::-webkit-scrollbar {
   display: none;
 }
@@ -37,20 +43,23 @@ body {
   height: 100%;
   width: 250px;
   position: fixed;
-  /* z-index: 1; */
-  top: 0px;
+  /* float: left; */
+  z-index: 1000;
+  /* top: 0px; */
   /* font-size: 2.5vh; */
-  font-size: 14px;
+  border-right: 3px solid rgba(111, 111, 111, 0.1);
+  font-size: 12px;
   left: 0;
   background-color: #a30d0d;
-  overflow-x: auto;
-  margin-top: 60px;
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
+.sidenav .menu{
+  margin-top: 20px;
+}
 
-.sidenav li {
-  padding: 20px 6px 6px 22px;
+.sidenav li, .sidenav a#home{
+  padding: 15px 6px 6px 22px;
   text-decoration: none;
   font-weight: bold;
   color: #dadada;
@@ -72,7 +81,7 @@ body {
   display: block;
 }
 
-.show a {
+.show a{
   text-decoration: none;
   color: #dadada;
   margin-left: 15px;
@@ -107,28 +116,74 @@ i.active {
 }
 
 .main {
-  padding-left: 2%;
-  margin-top: 80px;
-  margin-left: 300px; /* Same as the width of the sidenav */
-}
-
-.main h2 {
-  
+  padding-left: 270px;
+  margin-top: 60px;
+  padding-top: 20px;
+  /* margin-left: 250px; Same as the width of the sidenav */
 }
 
 .title-menu-wrapper {
   background-color: #a30d0d;
   color: #dadada;
+  position: fixed;
+  /* top: 0px; */
+  z-index: 1;
   height: 60px;
-  padding-left: 5vh;
+  width: 100%;
+  padding-left: 20px;
   margin-top: 60px;
-  margin-left: 250px;
+  /* margin-left: 250px; */
 }
 
 .title-menu-content {
   margin: 0 auto;
-  padding: 3px;
+  padding-left: 270px;
+  padding-top: 15px;
   height: 50%;
+}
+
+.main-content-wrapper {
+  width: 100%;
+  margin-top: 120px;
+  color:#a30d0d;
+  padding: 20px 20px 20px 270px;
+  /* background-color: #282c34; */
+  /* z-index: 100; */
+}
+
+/* form */
+.form-control {
+  padding: 10px;
+  width: 100%;
+  margin-right: 20px;
+}
+.form-control label {
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left;
+  /* display: inline; */
+}
+.form-control input, .form-control textarea, .form-control select {
+  max-width: 400px;
+  padding: 4px 10px;
+  margin: 10px 10px;
+  border: 1px solid #cbcbcb;
+  /* box-sizing: border-box; */
+  /* display: inline-block; */
+}
+
+.form-control input, .form-control select, .form-control checkbox:focus {
+  outline-color: #a30d0d;
+
+}
+
+.form-control button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 @media screen and (max-height: 450px) {
