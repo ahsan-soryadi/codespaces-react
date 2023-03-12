@@ -21,6 +21,7 @@ const Navigation = () => {
             
             target.nextSibling.classList.toggle('show')     
         }
+        
         return (
             <div>
                 <div className="header">
