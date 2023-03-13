@@ -157,6 +157,7 @@ i.active {
   padding: 10px;
   width: 100%;
   margin-right: 20px;
+  border: none;
 }
 .form-control label {
   font-weight: bold;
@@ -183,7 +184,7 @@ i.active {
   color: #fff;
   border: 0;
   padding: 8px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   cursor: pointer;
 }
 
