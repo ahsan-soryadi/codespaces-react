@@ -172,6 +172,7 @@ i.active {
   padding: 4px 10px;
   margin: 10px 10px;
   border: 1px solid #cbcbcb;
+  border-radius: 5px;
   /* box-sizing: border-box; */
   /* display: inline-block; */
 }
@@ -182,12 +183,12 @@ i.active {
 }
 
 .form-control button {
-  background: #f1356d;
+  background: #a30d0d;
+  padding: 4px 10px;
+  margin: 10px 18px;
   color: #fff;
   border: 0;
-  padding: 8px;
-  /* border-radius: 8px; */
-  cursor: pointer;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar {

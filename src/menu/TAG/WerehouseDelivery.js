@@ -24,7 +24,7 @@ const WerehouseDelivery = () => {
                     <div className='form-control'>
                         <form>
                             <div className='row'>
-                                <div className='col-3'>
+                                <div className='col-2'>
                                     <label>NIK/Nama Pengirim</label>
                                 </div>
                                 <div className='col-9'>
@@ -36,7 +36,7 @@ const WerehouseDelivery = () => {
                                             // onChange={(e) => setFrom(e.target.value)}
                                         />
                                 </div>
-                                <div className='col-3'>
+                                <div className='col-2'>
                                     <label>No Telp Pengirim</label>
                                 </div>
                                 <div className='col-9'>
@@ -50,7 +50,7 @@ const WerehouseDelivery = () => {
                                         // onChange={(e) => setFrom(e.target.value)}
                                     />
                                 </div>
-                                <div className='col-3'>
+                                <div className='col-2'>
                                     <label>Tgl Pengiriman</label>
                                 </div>
                                 <div className='col-9'>
@@ -61,7 +61,7 @@ const WerehouseDelivery = () => {
                                         // onChange={(e) => setFrom(e.target.value)}
                                     />
                                 </div>
-                                <div className='col-3'>
+                                <div className='col-2'>
                                     <label>Gudang Pengirim</label>
                                 </div>
                                 <div className='col-9'>
@@ -76,8 +76,8 @@ const WerehouseDelivery = () => {
                                         <option name="gudang1">Gudang 1</option>
                                     </select>
                                 </div>
-                                <div className='col-3'>
-                                    <label>Gudang Penerima:</label>
+                                <div className='col-2'>
+                                    <label>Gudang Penerima</label>
                                 </div>
                                 <div className='col-9'>
                                     <select
@@ -93,8 +93,8 @@ const WerehouseDelivery = () => {
                                         <option name="gudang4">Gudang 4</option>
                                     </select>
                                 </div>
-                                <div className='col-3'>
-                                    <label>Pilih Pengiriman:</label>
+                                <div className='col-2'>
+                                    <label>Pilih Pengiriman</label>
                                 </div>
                                 <div className='col-9'>
                                     <select
@@ -107,8 +107,8 @@ const WerehouseDelivery = () => {
                                         <option name="tanpaEkspedisi">Tanpa Ekspedisi</option>
                                     </select>
                                 </div>
-                                <div className='col-3'>
-                                    <label>NO DO:</label>
+                                <div className='col-2'>
+                                    <label>NO DO</label>
                                 </div>
                                 <div className='col-9'>
                                     <input
@@ -118,8 +118,8 @@ const WerehouseDelivery = () => {
                                         // onChange={(e) => setFrom(e.target.value)}
                                     />
                                 </div>
-                                <div className='col-3'>
-                                    <label>Qty Pengiriman:</label>
+                                <div className='col-2'>
+                                    <label>Qty Pengiriman</label>
                                 </div>
                                 <div className='col-9'>
                                     <input
@@ -129,8 +129,8 @@ const WerehouseDelivery = () => {
                                         // onChange={(e) => setFrom(e.target.value)}
                                     />
                                 </div>
-                                <div className='col-3'>
-                                    <label>Jasa Pengiriman:</label>
+                                <div className='col-2'>
+                                    <label>Jasa Pengiriman</label>
                                 </div>
                                 <div className='col-9'>
                                     <input
@@ -141,8 +141,8 @@ const WerehouseDelivery = () => {
                                         // onChange={(e) => setFrom(e.target.value)}
                                     />
                                 </div>
-                                <div className='col-3'>
-                                    <label>Serial Number:</label>
+                                <div className='col-2'>
+                                    <label>Serial Number</label>
                                 </div>
                                 <div className='col-9'>
                                     <input
@@ -152,8 +152,10 @@ const WerehouseDelivery = () => {
                                         // onChange={(e) => setFrom(e.target.value)}
                                     />
                                 </div>
-                            </div>
-                            
+                                <div className='col-2'>
+                                    <button type='submit'>Submit</button>
+                                </div>
+                            </div>   
                         </form>
                     </div>
                 </div>
