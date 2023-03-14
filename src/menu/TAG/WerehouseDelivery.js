@@ -29,7 +29,7 @@ const WerehouseDelivery = () => {
                                 </div>
                                 <div className='col-9'>
                                     <input
-                                            readOnly
+                                            disabled
                                             type="text"
                                             required
                                             value={user.nik + '/' + user.name}
