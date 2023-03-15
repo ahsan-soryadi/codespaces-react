@@ -69,7 +69,7 @@ const Navigation = () => {
                             <li onClick={handleHidden}>TAG <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
                                 <Link to="/werehouseDelivery">PENGIRIMAN AG</Link>
-                                <Link href="#" >LIST PENGIRIMAN AG</Link>
+                                <Link to="/werehouseDeliveryList" >LIST PENGIRIMAN AG</Link>
                                 <Link href="#" >LIST BAPPB TAG</Link>
                             </div> 
                         </div>    

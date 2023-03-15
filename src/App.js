@@ -4,6 +4,7 @@ import Navigation from './Navigation';
 import {Routes, Route} from 'react-router-dom';
 import WerehouseDelivery from './menu/TAG/WerehouseDelivery';
 import ProductList from './menu/ProductCatalogue/ProductList';
+import WerehouseDeliveryList from './menu/TAG/WerehouseDeliveryList';
 
 function App() {
   return (
@@ -14,21 +15,7 @@ function App() {
           <Route index element={<Home/>}/>
           <Route exact path="productList" element={<ProductList/>}/>
           <Route exact path="werehouseDelivery" element={<WerehouseDelivery/>}/>
-          {/* <Route path="/create">
-            <Create/>
-          </Route>
-          <Route path="/getBlog/:id">
-            <DetailBlog/>
-          </Route>
-          <Route path="/login">
-            <Login/>
-          </Route> 
-           <Route path="/generateCode">
-            <GenerateCode/>
-          </Route> 
-          <Route path="*">
-            <NotFound/>
-          </Route> */}
+          <Route exact path="werehouseDeliveryList" element={<WerehouseDeliveryList/>}/>
     </Routes>
     </div>
   );
