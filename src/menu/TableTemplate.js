@@ -1,37 +1,34 @@
 const TableTemplate = (props) => {
     const tableHeaders = props.tableHeaders;
-    //const tableData = props.tableData;
-    let i =0;
+    const tableData = props.tableData;
+    let keyTh = 0;
+    let keyTd = 0;
+    let keyTr = 0;
     return (
         <div>
             <table className="table table-striped">
                 <thead>
                     <tr>
                     {tableHeaders.map(data => {
-                        i = i+1
-                       return <th key={i}>{data}</th>
+                        keyTh += 1
+                       return <th key={keyTh+data}>{data}</th>
                     })}
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {tableData.map(data => {
-                        return <td>{data}</td>
-                    })} */}
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>Mary</td>
-                        <td>Moe</td>
-                        <td>mary@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>July</td>
-                        <td>Dooley</td>
-                        <td>july@example.com</td>
-                    </tr>
+                    {tableData.map(data => {
+                        const items = Object.entries(data);
+                        keyTr += 1;
+                        return (
+                            <tr key={keyTr}>
+                                {items.map(value => {
+                                    keyTd += 1;
+                                    return <td key={keyTd+value[1]}>{value[1]}</td>
+                                }
+                                )}
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
         </div>
