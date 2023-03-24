@@ -50,8 +50,8 @@ const Navigation = () => {
                             <li onClick={handleHidden}>KATALOG PRODUK <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
                                 <Link to="/productList" >PRODUCT LIST</Link>
-                                <Link href="#" >LIST JENIS PRODUCT</Link>
-                                <Link href="#" >LIST MERK PRODUCT</Link>
+                                <Link to="/productCategoryList" >LIST JENIS PRODUCT</Link>
+                                <Link to="productBrandList" >LIST MERK PRODUCT</Link>
                             </div> 
                             <li onClick={handleHidden}>EDIT <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
@@ -69,8 +69,8 @@ const Navigation = () => {
                             <li onClick={handleHidden}>TAG <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
                                 <Link to="/werehouseDelivery">PENGIRIMAN AG</Link>
-                                <Link to="/werehouseDeliveryList" >LIST PENGIRIMAN AG</Link>
-                                <Link href="#" >LIST BAPPB TAG</Link>
+                                <Link to="/werehouseReceptionList" >LIST PENERIMAAN AG</Link>
+                                <Link to="/bappbTagList" >LIST BAPPB TAG</Link>
                             </div> 
                         </div>    
                     </div>

@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import TableTemplate from '../TableTemplate';
 import TitleMenuView from '../TitleMenuView';
 
-const BappbTagList = () => {
+const ProductBrandList = () => {
     const [tableData, setTableData] = useState(null);
-    const tableHeaders = ["No", "Tanggal Penerimaan", "Nama Penerima", "Gudang Pengrim", "Gudang Penerima", "Jasa Pengiriman", "Qty", "No Do", "BAPPB"];
+    const tableHeaders = ["Merk", "Jenis Product"]
     
     useEffect(()=> {
         let ignore = false;
@@ -14,6 +14,7 @@ const BappbTagList = () => {
             if(!ignore){
                 setTableData(json);
             }
+            
         })
         return () => {
             ignore = true;
@@ -21,13 +22,14 @@ const BappbTagList = () => {
     },[])
     return (
         <div>
-            <TitleMenuView titleMenu="LIST BAPPB TAG"/>
+            <TitleMenuView titleMenu="PRODUCT BRAND LIST"/>
             <div className='main-content-wrapper'>
                 <div className='main-content'>
-                {tableData !== null ? <TableTemplate tableHeaders={tableHeaders} tableData={tableData}/> : "loading"}
+                  {tableData !== null ? <TableTemplate tableHeaders={tableHeaders} tableData={tableData}/> : "loading"}  
                 </div>
             </div>
+            
         </div>
     )
 }
-export default BappbTagList;
+export default ProductBrandList;

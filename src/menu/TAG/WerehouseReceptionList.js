@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import TableTemplate from '../TableTemplate';
 import TitleMenuView from '../TitleMenuView';
 
-const WerehouseDeliveryList = () => {
+const WerehouseReceptionList = () => {
     const [tableData, setTableData] = useState(null);
-    const tableHeaders = ["No", "Tanggal Pengiriman", "Nama Pengirim", "Gudang Pengrim", "Gudang Penerima", "Jasa Pengirim", "Qty Blm Diterima", "Detail", "Penerima"];
+    const tableHeaders = ["No", "Tanggal Pengiriman", "Nama Pengirim", "Gudang Pengrim", "Gudang Penerima", "Jasa Pengirim", "Qty Blm Diterima", "Detail", "Penerimaan"];
     
     useEffect(()=> {
         let ignore = false;
@@ -21,7 +21,7 @@ const WerehouseDeliveryList = () => {
     },[])
     return (
         <div>
-            <TitleMenuView titleMenu="LIST PENGIRIMAN AG"/>
+            <TitleMenuView titleMenu="LIST PENERIMAAN ANTAR GUDANG"/>
             <div className='main-content-wrapper'>
                 <div className='main-content'>
                 {tableData !== null ? <TableTemplate tableHeaders={tableHeaders} tableData={tableData}/> : "loading"}
@@ -30,4 +30,4 @@ const WerehouseDeliveryList = () => {
         </div>
     )
 }
-export default WerehouseDeliveryList;
+export default WerehouseReceptionList;

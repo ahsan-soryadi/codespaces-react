@@ -2,9 +2,12 @@ import './App.css';
 import Home from './menu/Home'
 import Navigation from './Navigation';
 import {Routes, Route} from 'react-router-dom';
-import WerehouseDelivery from './menu/TAG/WerehouseDelivery';
 import ProductList from './menu/ProductCatalogue/ProductList';
-import WerehouseDeliveryList from './menu/TAG/WerehouseDeliveryList';
+import ProductCategoryList from './menu/ProductCatalogue/ProductCategoryList';
+import ProductBrandList from './menu/ProductCatalogue/ProductBrandList';
+import WerehouseDelivery from './menu/TAG/WerehouseDelivery';
+import BappbTagList from './menu/TAG/BappbTagList';
+import WerehouseReceptionList from './menu/TAG/WerehouseReceptionList';
 
 function App() {
   return (
@@ -14,8 +17,11 @@ function App() {
           <Route exact path="/" element={<Home/>}/>
           <Route index element={<Home/>}/>
           <Route exact path="productList" element={<ProductList/>}/>
+          <Route exact path="productCategoryList" element={<ProductCategoryList/>}/>
+          <Route exact path="productBrandList" element={<ProductBrandList/>}/>
           <Route exact path="werehouseDelivery" element={<WerehouseDelivery/>}/>
-          <Route exact path="werehouseDeliveryList" element={<WerehouseDeliveryList/>}/>
+          <Route exact path="werehouseReceptionList" element={<WerehouseReceptionList/>}/>
+          <Route exact path="bappbTagList" element={<BappbTagList/>}/>
     </Routes>
     </div>
   );
