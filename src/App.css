@@ -16,7 +16,7 @@ body {
   padding-top: 12px;
 }
 
-.right {
+.right, .table-pagination {
   float: right;
   padding-right: 32px;
   text-align: center;

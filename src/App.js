@@ -1,5 +1,4 @@
-import './App.css';
-import Home from './menu/Home'
+import Home from './menu/Home';
 import Navigation from './Navigation';
 import {Routes, Route} from 'react-router-dom';
 import ProductList from './menu/ProductCatalogue/ProductList';

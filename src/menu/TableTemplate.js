@@ -1,3 +1,5 @@
+import PaginationTemplate from "../PaginationTemplate";
+
 const TableTemplate = (props) => {
     const tableHeaders = props.tableHeaders;
     const tableData = props.tableData;
@@ -11,7 +13,7 @@ const TableTemplate = (props) => {
                     <tr>
                     {tableHeaders.map(data => {
                         keyTh += 1
-                       return <th key={keyTh+data}>{data}</th>
+                       return <th key={"th"+keyTh+data}>{data}</th>
                     })}
                     </tr>
                 </thead>
@@ -20,10 +22,10 @@ const TableTemplate = (props) => {
                         const items = Object.entries(data);
                         keyTr += 1;
                         return (
-                            <tr key={keyTr}>
+                            <tr key={"tr"+keyTr}>
                                 {items.map(value => {
                                     keyTd += 1;
-                                    return <td key={keyTd+value[1]}>{value[1]}</td>
+                                    return <td key={"td"+keyTd+value[1]}>{value[1]}</td>
                                 }
                                 )}
                             </tr>
@@ -31,6 +33,7 @@ const TableTemplate = (props) => {
                     })}
                 </tbody>
             </table>
+            <PaginationTemplate/>
         </div>
     )
 }
