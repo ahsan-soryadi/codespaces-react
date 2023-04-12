@@ -6,6 +6,18 @@ const TableTemplate = (props) => {
     let keyTh = 0;
     let keyTd = 0;
     let keyTr = 0;
+
+    const handleButtonClick = (e) =>{
+        e.preventDefault();
+        console.log(e)
+        const elementTarget = e.target.title;
+        if(elementTarget === "download"){
+            alert("tombol download ditekan")
+        } else if(elementTarget === "action") {
+            alert("tombol action ditekan")
+        }
+        
+    }
     return (
         <div>
             <table className="table table-striped">
@@ -25,6 +37,11 @@ const TableTemplate = (props) => {
                             <tr key={"tr"+keyTr}>
                                 {items.map(value => {
                                     keyTd += 1;
+                                    // console.log(value[1])
+                                    let action = value[1].toString();
+                                    if(action.includes("<button") || action.includes("<i")){
+                                        return <td onClick={handleButtonClick} key={"td"+keyTd+value[1]} dangerouslySetInnerHTML={{__html: value[1]}}></td>
+                                    }
                                     return <td key={"td"+keyTd+value[1]}>{value[1]}</td>
                                 }
                                 )}

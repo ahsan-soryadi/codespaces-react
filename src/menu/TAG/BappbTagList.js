@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import TableTemplate from '../TableTemplate';
 import TitleMenuView from '../TitleMenuView';
+import Navigation from '../../Navigation';
 
 const BappbTagList = () => {
     const [tableData, setTableData] = useState(null);
@@ -21,6 +22,7 @@ const BappbTagList = () => {
     },[])
     return (
         <div>
+            <Navigation/>
             <TitleMenuView titleMenu="LIST BAPPB TAG"/>
             <div className='main-content-wrapper'>
                 <div className='main-content'>

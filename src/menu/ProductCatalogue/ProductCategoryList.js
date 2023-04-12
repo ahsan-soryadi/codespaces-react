@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import TableTemplate from '../TableTemplate';
 import TitleMenuView from '../TitleMenuView';
+import Navigation from '../../Navigation';
 
 const ProductCategoryList = () => {
     const [tableData, setTableData] = useState(null);
@@ -22,6 +23,7 @@ const ProductCategoryList = () => {
     },[])
     return (
         <div>
+            <Navigation/>
             <TitleMenuView titleMenu="PRODUCT CATEGORY LIST"/>
             <div className='main-content-wrapper'>
                 <div className='main-content'>

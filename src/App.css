@@ -67,7 +67,7 @@ body {
   list-style-type: none;
 }
 
-.sidenav li:hover {
+.sidenav li:hover{
   color: #ffffff;
   cursor: pointer;
 }
@@ -199,6 +199,10 @@ thead {
 
 tbody {
   font-size: 12px;
+}
+
+i.bi-download:hover {
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {

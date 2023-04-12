@@ -52,7 +52,7 @@ const Navigation = () => {
         
                         </div>
                         <div className="menu">
-                            <Link to="/" title='Home' id="home">HOME</Link>
+                            <Link to="/home" title='Home' id="home">HOME</Link>
                             <li onClick={handleHidden}>CREATE STOCK <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
                                 <Link to="/createStockPO" >CREATE STOCK PO</Link>

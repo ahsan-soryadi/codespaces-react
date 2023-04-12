@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import TitleMenuView from '../TitleMenuView';
+import Navigation from '../../Navigation';
+
 const WerehouseDelivery = () => {
     const [from, setFrom] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -15,6 +17,7 @@ const WerehouseDelivery = () => {
     }
     return (
         <div>
+            <Navigation/>
             <TitleMenuView titleMenu="PENGIRIMAN ANTAR GUDANG"/>
             <div className='main-content-wrapper'>
                 <div className='main-content'>

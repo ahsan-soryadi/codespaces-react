@@ -13,14 +13,17 @@ import EditItemAllocation from './menu/Edit/EditItemAllocation';
 import AssetrequestList from './menu/Usage/AssetRequestList';
 import ChangeOfUseList from './menu/Usage/ChangeOfUseList';
 import ListSO from './menu/StockOpname/ListSO';
+import Login from './login';
 
 function App() {
   return (
     <div className="App">
-      <Navigation/>
+      {/* <Login/> */}
+      {/* <Navigation/> */}
     <Routes>
-          <Route exact path="/" element={<Home/>}/>
-          <Route index element={<Home/>}/>
+          <Route exact path="/home" element={<Home/>}/>
+          <Route index element={<Login/>}/>
+          <Route exact path="/login" element={<Login/>}/>
           <Route exact path="createStockPO" element={<CreateStockPO/>}/>
           <Route exact path="createStockIF" element={<CreateStockIF/>}/>
           <Route exact path="productList" element={<ProductList/>}/>

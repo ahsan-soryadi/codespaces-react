@@ -8,7 +8,8 @@
             "jasaPengirim":"JNE",
             "qtyBlmDiterima":0,
             "detail":"",
-            "penerima": ""
+            "penerima": "",
+            "action": "<button type=\"button\" class=\"btn btn-sm btn-primary\" title=\"action\">Action</button>"
         },
         {
             "no": 2,
@@ -19,7 +20,8 @@
             "jasaPengirim":"LION PARCEL",
             "qtyBlmDiterima":0,
             "detail":"",
-            "penerima": ""
+            "penerima": "",
+            "action": "<i class=\"bi bi-download\" title=\"download\"></i>"
         },
         {
             "no": 3,
@@ -30,7 +32,8 @@
             "jasaPengirim":"JNE",
             "qtyBlmDiterima":0,
             "detail":"",
-            "penerima":""
+            "penerima":"",
+            "action": "<button type='button' class='btn btn-sm btn-primary'>Action</button>"
         },
         {
             "no": 4,
@@ -41,7 +44,8 @@
             "jasaPengirim":"LION PARCEL",
             "qtyBlmDiterima":0,
             "detail":"",
-            "penerima":""
+            "penerima":"",
+            "action": "<button type='button' class='btn btn-sm btn-primary'>Action</button>"
         },
         {
             "no": 5,
@@ -52,7 +56,8 @@
             "jasaPengirim":"JNE",
             "qtyBlmDiterima":0,
             "detail":"",
-            "penerima":""
+            "penerima":"",
+            "action": "<button type='button' class='btn btn-sm btn-primary'>Action</button>"
         },
         {
             "no": 6,

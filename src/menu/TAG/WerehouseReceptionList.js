@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import TableTemplate from '../TableTemplate';
 import TitleMenuView from '../TitleMenuView';
+import Navigation from '../../Navigation';
 
 const WerehouseReceptionList = () => {
     const [tableData, setTableData] = useState(null);
@@ -21,6 +22,7 @@ const WerehouseReceptionList = () => {
     },[])
     return (
         <div>
+            <Navigation/>
             <TitleMenuView titleMenu="LIST PENERIMAAN ANTAR GUDANG"/>
             <div className='main-content-wrapper'>
                 <div className='main-content'>

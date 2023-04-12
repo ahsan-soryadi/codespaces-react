@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import TableTemplate from '../TableTemplate';
 import TitleMenuView from '../TitleMenuView';
+import Navigation from '../../Navigation';
 
 const AssetrequestList = () => {
     const [tableData, setTableData] = useState(null);
@@ -21,6 +22,7 @@ const AssetrequestList = () => {
     },[])
     return (
         <div>
+            <Navigation/>
             <TitleMenuView titleMenu="LIST REQUEST ASET"/>
             <div className='main-content-wrapper'>
                 <div className='main-content'>
