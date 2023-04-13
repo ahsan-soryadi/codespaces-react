@@ -21,7 +21,7 @@ function App() {
       {/* <Login/> */}
       {/* <Navigation/> */}
     <Routes>
-          <Route exact path="/home" element={<Home/>}/>
+          <Route exact path="/" element={<Home/>}/>
           <Route index element={<Login/>}/>
           <Route exact path="/login" element={<Login/>}/>
           <Route exact path="createStockPO" element={<CreateStockPO/>}/>
