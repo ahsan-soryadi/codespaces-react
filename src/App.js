@@ -14,6 +14,7 @@ import AssetrequestList from './menu/Usage/AssetRequestList';
 import ChangeOfUseList from './menu/Usage/ChangeOfUseList';
 import ListSO from './menu/StockOpname/ListSO';
 import Login from './login';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
@@ -21,21 +22,26 @@ function App() {
       {/* <Login/> */}
       {/* <Navigation/> */}
     <Routes>
-          <Route exact path="/" element={<Home/>}/>
-          <Route index element={<Login/>}/>
-          <Route exact path="/login" element={<Login/>}/>
-          <Route exact path="createStockPO" element={<CreateStockPO/>}/>
-          <Route exact path="createStockIF" element={<CreateStockIF/>}/>
-          <Route exact path="productList" element={<ProductList/>}/>
-          <Route exact path="productCategoryList" element={<ProductCategoryList/>}/>
-          <Route exact path="productBrandList" element={<ProductBrandList/>}/>
-          <Route exact path="editItemAllocation" element={<EditItemAllocation/>}/>
-          <Route exact path="assetRequestList" element={<AssetrequestList/>}/>
-          <Route exact path="changeOfUseList" element={<ChangeOfUseList/>}/>
-          <Route exact path="listSO" element={<ListSO/>}/>
-          <Route exact path="werehouseDelivery" element={<WerehouseDelivery/>}/>
-          <Route exact path="werehouseReceptionList" element={<WerehouseReceptionList/>}/>
-          <Route exact path="bappbTagList" element={<BappbTagList/>}/>
+          <Route exact path="/" element={
+            <PrivateRoute>
+              <Home/>
+            </PrivateRoute>
+          }/>
+          {/* <Route index element={<Login/>}/> */}
+          <Route exact path="login" element={<Login/>}/>
+          <Route exact path="home" element={<PrivateRoute><Home/></PrivateRoute>}/>
+          <Route exact path="createStockPO" element={<PrivateRoute><CreateStockPO/></PrivateRoute>}/>
+          <Route exact path="createStockIF" element={<PrivateRoute><CreateStockIF/></PrivateRoute>}/>
+          <Route exact path="productList" element={<PrivateRoute><ProductList/></PrivateRoute>}/>
+          <Route exact path="productCategoryList" element={<PrivateRoute><ProductCategoryList/></PrivateRoute>}/>
+          <Route exact path="productBrandList" element={<PrivateRoute><ProductBrandList/></PrivateRoute>}/>
+          <Route exact path="editItemAllocation" element={<PrivateRoute><EditItemAllocation/></PrivateRoute>}/>
+          <Route exact path="assetRequestList" element={<PrivateRoute><AssetrequestList/></PrivateRoute>}/>
+          <Route exact path="changeOfUseList" element={<PrivateRoute><ChangeOfUseList/></PrivateRoute>}/>
+          <Route exact path="listSO" element={<PrivateRoute><ListSO/></PrivateRoute>}/>
+          <Route exact path="werehouseDelivery" element={<PrivateRoute><WerehouseDelivery/></PrivateRoute>}/>
+          <Route exact path="werehouseReceptionList" element={<PrivateRoute><WerehouseReceptionList/></PrivateRoute>}/>
+          <Route exact path="bappbTagList" element={<PrivateRoute><BappbTagList/></PrivateRoute>}/>
     </Routes>
     </div>
   );
