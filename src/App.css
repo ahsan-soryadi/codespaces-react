@@ -39,6 +39,10 @@ body {
   height: 40px;
 }
 
+.form-control.login button:hover {
+  background: #c95555;
+}
+
 .header {
   top: 0;
   z-index: 1;

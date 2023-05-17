@@ -17,10 +17,16 @@ const Login = () => {
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            if(data.ok){
-                navigate('/login')
+            if(data.message === 'ok'){
+                document.cookie = null;
+                document.cookie = `token=${data.token}; Secure`;
+                console.log("inside ok");
+                navigate('/home')
+            } else {
+                console.log("outside ok")
+                setMessage('Login error: ' + data.error)
             }
-            setMessage('Login error: ' + data.error)
+            
         })
         .catch(error => {
             setMessage('Login error: code 500')
