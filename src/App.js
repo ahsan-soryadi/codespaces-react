@@ -23,9 +23,9 @@ function App() {
       {/* <Navigation/> */}
     <Routes>
           <Route exact path="/" element={
-            <PrivateRoute>
-              <Home/>
-            </PrivateRoute>
+            // <PrivateRoute>
+              <Login/>
+            /* </PrivateRoute> */
           }/>
           {/* <Route index element={<Login/>}/> */}
           <Route exact path="login" element={<Login/>}/>

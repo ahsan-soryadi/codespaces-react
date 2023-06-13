@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Logout from "./logout";
 
 const Navigation = () => {
+
+    const navigate = useNavigate();
     
     const handleHidden = (e) =>{
         const sideNavSub = document.getElementsByClassName('show');
@@ -33,6 +36,27 @@ const Navigation = () => {
         target.nextSibling.classList.toggle('show')
    
     }
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:3001/user/logout', {
+            method: 'GET'
+        })
+            .then(response => response.json())
+            .then(data => {
+                if(data.result === false){
+                    document.cookie = 'token=none; max-age=2';
+                    navigate('/login')
+                }
+            })
+            .catch(error => console.log(error))
+        // console.log("islogin from handle logout = ", isLogout)
+        // if(isLogout != undefined){
+        //     if(!isLogout === false){
+        //        navigate('/login') 
+        //     }
+        // }
+    }
         
         return (
             <div>
@@ -42,7 +66,7 @@ const Navigation = () => {
                             LOGO
                         </div>
                         <div className="right">
-                            LOGOUT
+                            <li onClick={handleLogout}>LOGOUT</li>
                         </div>
                     </div>  
                 </div>

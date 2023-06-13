@@ -60,7 +60,8 @@ body {
   float: right;
   padding-right: 32px;
   text-align: center;
-
+  list-style-type: none;
+  cursor: pointer;
 }
 
 .left {

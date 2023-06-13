@@ -12,13 +12,13 @@ const Login = () => {
         fetch('http://localhost:3001/user/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
+            credentials:"same-origin",
             body: JSON.stringify({userName: userName, password: password})
         })
         .then(response => response.json())
         .then(data => {
             console.log(data)
             if(data.message === 'ok'){
-                document.cookie = null;
                 document.cookie = `token=${data.token}; Secure`;
                 console.log("inside ok");
                 navigate('/home')
