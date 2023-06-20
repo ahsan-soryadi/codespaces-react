@@ -5,7 +5,7 @@ const PrivateRoute = ({children}) => {
     const isLogin = Authenticate();
     // const isLogin = true;
     console.log("islogin = ", isLogin);
-    if(isLogin !== undefined){
+    if(isLogin !== null){
         return isLogin ? children : <Navigate to={'/login'}/>
     }
 }

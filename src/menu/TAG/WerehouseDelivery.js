@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import TitleMenuView from '../TitleMenuView';
 import Navigation from '../../Navigation';
+import { useLocation } from 'react-router-dom';
 
 const WerehouseDelivery = () => {
+    const [userName, setUserName] = useState(localStorage.getItem('userName'))
     const [from, setFrom] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const user = {
-        "nik": "20961546",
-        "name": "I GUSTI NGURAH PANDU WIBISANA ANTARA", 
-    }
 
     const handleNumber = (event) =>{
         if(!((event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode === 8 || event.keyCode === 9)){
@@ -33,7 +31,8 @@ const WerehouseDelivery = () => {
                                             disabled
                                             type="text"
                                             required
-                                            value={user.nik + '/' + user.name}
+                                            // value={user.nik + '/' + user.name}
+                                            value={userName}
                                             // onChange={(e) => setFrom(e.target.value)}
                                         />
                                 </div>

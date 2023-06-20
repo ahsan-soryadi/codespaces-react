@@ -1,9 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
-import Logout from "./logout";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Logout from "./Logout";
 
 const Navigation = () => {
-
-    const navigate = useNavigate();
+    const [userName, setUsername] = useState(localStorage.getItem('userName'))
+    const [role, setRole] = useState(localStorage.getItem('role'))
+    // console.log("user data : ", user)
     
     const handleHidden = (e) =>{
         const sideNavSub = document.getElementsByClassName('show');
@@ -35,29 +37,7 @@ const Navigation = () => {
 
         target.nextSibling.classList.toggle('show')
    
-    }
-
-    const handleLogout = (e) => {
-        e.preventDefault();
-        fetch('http://localhost:3001/user/logout', {
-            method: 'GET'
-        })
-            .then(response => response.json())
-            .then(data => {
-                if(data.result === false){
-                    document.cookie = 'token=none; max-age=2';
-                    navigate('/login')
-                }
-            })
-            .catch(error => console.log(error))
-        // console.log("islogin from handle logout = ", isLogout)
-        // if(isLogout != undefined){
-        //     if(!isLogout === false){
-        //        navigate('/login') 
-        //     }
-        // }
-    }
-        
+    }     
         return (
             <div>
                 <div className="header">
@@ -66,7 +46,7 @@ const Navigation = () => {
                             LOGO
                         </div>
                         <div className="right">
-                            <li onClick={handleLogout}>LOGOUT</li>
+                            <Logout/>
                         </div>
                     </div>  
                 </div>
@@ -77,11 +57,15 @@ const Navigation = () => {
                         </div>
                         <div className="menu">
                             <Link to="/home" title='Home' id="home">HOME</Link>
+                            {role && role === "gudang_pusat" ? <>
                             <li onClick={handleHidden}>CREATE STOCK <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
-                                <Link to="/createStockPO" >CREATE STOCK PO</Link>
-                                <Link to="/createStockIF" >CREATE STOCK IF</Link>
+                                <Link to="/createStockPO">CREATE STOCK PO</Link>
+                                <Link to="/createStockIF">CREATE STOCK IF</Link>
                             </div>
+                             </> : <></> 
+                            } 
+                            
                             
                             <li onClick={handleHidden}>KATALOG PRODUK <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
