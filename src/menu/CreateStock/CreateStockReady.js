@@ -1,12 +1,12 @@
 import TitleMenuView from "../TitleMenuView";
 import Navigation from "../../Navigation";
 
-const CreateStockIF = () => {
+const CreateStockReady = () => {
    
     return (
         <div>
             <Navigation/>
-            <TitleMenuView titleMenu="CREATE STOCK IF"/>
+            <TitleMenuView titleMenu="CREATE STOCK READY"/>
             <div className='main-content-wrapper'>
                 <div className='main-content'>
                 
@@ -15,4 +15,4 @@ const CreateStockIF = () => {
         </div>
     )
 }
-export default CreateStockIF;
+export default CreateStockReady;

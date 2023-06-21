@@ -1,3 +1,6 @@
+import Header from "./Header"
+import SideNavbar from "./SideNavbar"
+
 const NotFoundPage = ()=> {
     return (
         <>

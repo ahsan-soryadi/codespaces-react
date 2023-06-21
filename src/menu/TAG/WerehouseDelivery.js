@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import TitleMenuView from '../TitleMenuView';
 import Navigation from '../../Navigation';
-import { useLocation } from 'react-router-dom';
 
 const WerehouseDelivery = () => {
     const [userName, setUserName] = useState(localStorage.getItem('userName'))

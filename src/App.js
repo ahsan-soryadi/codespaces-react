@@ -7,7 +7,7 @@ import WerehouseDelivery from './menu/TAG/WerehouseDelivery';
 import BappbTagList from './menu/TAG/BappbTagList';
 import WerehouseReceptionList from './menu/TAG/WerehouseReceptionList';
 import CreateStockPO from './menu/CreateStock/CreateStockPO';
-import CreateStockIF from './menu/CreateStock/CreateStockIF';
+import CreateStockReady from './menu/CreateStock/CreateStockReady';
 import EditItemAllocation from './menu/Edit/EditItemAllocation';
 import AssetrequestList from './menu/Usage/AssetRequestList';
 import ChangeOfUseList from './menu/Usage/ChangeOfUseList';
@@ -27,11 +27,11 @@ function App() {
           <Route exact path="login" element={<Login/>}/>
           <Route exact path="home" element={<PrivateRoute><Home/></PrivateRoute>} />
           <Route exact path="createStockPO" element={<PrivateRoute><GudangPusatRoute><CreateStockPO/></GudangPusatRoute></PrivateRoute>} />
-          <Route exact path="createStockIF" element={<PrivateRoute><GudangPusatRoute><CreateStockIF /></GudangPusatRoute></PrivateRoute>} />
+          <Route exact path="createStockReady" element={<PrivateRoute><GudangPusatRoute><CreateStockReady /></GudangPusatRoute></PrivateRoute>} />
           <Route exact path="productList" element={<PrivateRoute><ProductList /></PrivateRoute>} />
           <Route exact path="productCategoryList" element={<PrivateRoute><ProductCategoryList /></PrivateRoute>} />
           <Route exact path="productBrandList" element={<PrivateRoute><ProductBrandList /></PrivateRoute>} />
-          <Route exact path="editItemAllocation" element={<PrivateRoute><EditItemAllocation /></PrivateRoute>} />
+          <Route exact path="editItemAllocation" element={<PrivateRoute><GudangPusatRoute><EditItemAllocation /></GudangPusatRoute></PrivateRoute>} />
           <Route exact path="assetRequestList" element={<PrivateRoute><AssetrequestList /></PrivateRoute>} />
           <Route exact path="changeOfUseList" element={<PrivateRoute><ChangeOfUseList /></PrivateRoute>} />
           <Route exact path="listSO" element={<PrivateRoute><ListSO /></PrivateRoute>} />

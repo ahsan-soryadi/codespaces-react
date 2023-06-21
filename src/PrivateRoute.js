@@ -4,7 +4,7 @@ import Authenticate from "./Authenticate";
 const PrivateRoute = ({children}) => {
     const isLogin = Authenticate();
     // const isLogin = true;
-    console.log("islogin = ", isLogin);
+    // console.log("islogin = ", isLogin);
     if(isLogin !== null){
         return isLogin ? children : <Navigate to={'/login'}/>
     }
