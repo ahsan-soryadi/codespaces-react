@@ -21,6 +21,7 @@ const Login = () => {
                 document.cookie = `token=${data.token}; Secure`;
                 // console.log("inside ok");
                 localStorage.setItem("userName", data.user.USERNAME)
+                localStorage.setItem("usernameID", data.user.ID)
                 localStorage.setItem("role", data.user.ROLE)
                 navigate('/home')
             } else {

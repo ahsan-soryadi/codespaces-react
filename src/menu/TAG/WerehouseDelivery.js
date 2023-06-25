@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import TitleMenuView from '../TitleMenuView';
 import Navigation from '../../Navigation';
+import { useCheckNumber } from '../../Utils';
 
 const WerehouseDelivery = () => {
     const [userName, setUserName] = useState(localStorage.getItem('userName'))
     const [from, setFrom] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
 
-    const handleNumber = (event) =>{
-        if(!((event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode === 8 || event.keyCode === 9)){
-            event.preventDefault();
-        }
+    const handleInputNumber = (e) =>{
+        useCheckNumber(e)
     }
     return (
         <div>
@@ -43,7 +42,7 @@ const WerehouseDelivery = () => {
                                         type="text"
                                         maxLength="12"
                                         // value={phoneNumber}
-                                        onKeyDown={handleNumber}
+                                        onKeyDown={handleInputNumber}
                                         // onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
                                         required
                                         // value={from}
@@ -125,7 +124,7 @@ const WerehouseDelivery = () => {
                                     <input
                                         type="text"
                                         required
-                                        onKeyDown={handleNumber}
+                                        onKeyDown={handleInputNumber}
                                         // value={from}
                                         // onChange={(e) => setFrom(e.target.value)}
                                     />

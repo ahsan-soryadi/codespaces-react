@@ -5,7 +5,7 @@ const Header = () => {
         <div className="header">
                     <div className="header-content">
                         <div className="left">
-                            LOGO
+                            <h3 style={{color: "#a30d0d"}}>WTM</h3>
                         </div>
                         <div className="right">
                             <Logout/>

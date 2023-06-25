@@ -49,7 +49,7 @@ const SideNavbar = () => {
                                 <li onClick={handleHidden}>CREATE STOCK <i className="bi bi-caret-down-fill"></i></li>
                                 <div className="sidenav-sub">
                                     <Link to="/createStockPO">CREATE STOCK PO</Link>
-                                    <Link to="/createStockIF">CREATE STOCK READY</Link>
+                                    <Link to="/createStockReady">CREATE STOCK READY</Link>
                                 </div>
                              </> : <></> 
                             } 
@@ -69,11 +69,11 @@ const SideNavbar = () => {
                                 </div> 
                             </> : <></>}
                             
-                            <li onClick={handleHidden}>PEMAKAIAN <i className="bi bi-caret-down-fill"></i></li>
+                            {/* <li onClick={handleHidden}>PEMAKAIAN <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
                                 <Link to="/assetRequestList" >LIST REQUEST ASET</Link>
                                 <Link to="/changeOfUseList" >LIST PERGANTIAN PEMAKAIAN</Link>
-                            </div> 
+                            </div>  */}
                             <li onClick={handleHidden}>STOCK OPNAME <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
                                 <Link to="/listSO" >LIST SO</Link>

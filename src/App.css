@@ -2,7 +2,74 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
 }
+/* start modal style */
+body.active-modal {
+  overflow-y: hidden;
+}
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 18px;
+}
 
+.modal, .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1000;
+}
+
+.modal-wrapper {
+  z-index: 1000;
+}
+
+.overlay {
+  background: rgba(49,49,49,0.8);
+  z-index: 1000;
+}
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 400px;
+  min-width: 300px;
+  height: 200px;
+  z-index: 1000;
+} 
+
+.modal-content>p {
+  margin: 70px auto auto;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.red {
+  color: #a30d0d;
+}
+
+.green {
+  color:#0b8c41
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+  border: none;
+  color: #bdbdbd;
+}
+/* end modal style */
 .logo {
   text-align: center;
   margin-top: 8em;
@@ -198,7 +265,8 @@ i.active {
   padding: 10px;
   width: 100%;
   margin-right: 20px;
-  border: none;
+  background-color: #f8f8f8;
+  border: 1px solid #cbcbcb;
 }
 .form-control label {
   font-weight: bold;
@@ -230,6 +298,14 @@ i.active {
   color: #fff;
   border: 0;
   border-radius: 5px;
+}
+
+.form-control button:hover {
+  background: #c95555;
+}
+
+.form-control button:disabled {
+  background: #c95555;
 }
 
 thead {
@@ -271,3 +347,4 @@ i.bi-download:hover {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
 }
+
