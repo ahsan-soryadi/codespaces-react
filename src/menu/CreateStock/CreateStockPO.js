@@ -17,10 +17,12 @@ const CreateStockPO = () => {
 
     const isDisabled = () => {
         if(noPO.length > 0 &&
+            noPO > 0 &&
             jenisBarang.length > 0 &&
             produkSeri.length > 0 &&
             merkBarang.length > 0 &&
             qtyPO.length > 0 && 
+            qtyPO > 0 &&
             !isNoPOExist) {
                 return false
             } else {
@@ -28,9 +30,9 @@ const CreateStockPO = () => {
             }
     }
     
-   const handleInputNumber = (e) => {
-     useCheckNumber(e)
-   }
+//    const handleInputNumber = (e) => {
+//      useCheckNumber(e)
+//    }
 
 //    const handleCheckNoPO = (e) => {
       
@@ -56,44 +58,46 @@ const CreateStockPO = () => {
 
    const handleSubmit = (e) => {
     e.preventDefault()
-    console.log([noPO, jenisBarang, produkSeri, merkBarang, qtyPO, usernameID])
-    fetch('http://localhost:3001/stock/createStockPO', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        credentials:"same-origin",
-        body: JSON.stringify({
-            noPO: noPO, 
-            jenisBarang: jenisBarang, 
-            produkSeri: produkSeri, 
-            merkBarang: merkBarang, 
-            qtyPO: qtyPO, 
-            usernameID: usernameID
+        // console.log([noPO, jenisBarang, produkSeri, merkBarang, qtyPO, usernameID])
+        fetch('http://localhost:3001/stock/createStockPO', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: "same-origin",
+            body: JSON.stringify({
+                noPO: noPO,
+                jenisBarang: jenisBarang,
+                produkSeri: produkSeri,
+                merkBarang: merkBarang,
+                qtyPO: qtyPO,
+                usernameID: usernameID
+            })
         })
-    })
-    .then(response => {
-        if(response.ok){
-            return response.json()
-        } else {
-            return "error"
-        }
-    })
-    .then(data => {
-        if(data.affectedRows > 0){
-            // alert("ok")
-            setModal(true)
-            setMessage("Succes")
-            setNoPO('')
-            setProdukSeri('')
-            setJenisBarang('')
-            setMerkBarang('')
-            setQtyPO('')
-        } else {
-            setModal(true)
-            setMessage("Error")
-        }
-    })
-    .catch(error => console.log(error))
-   }
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    return "error"
+                }
+            })
+            .then(data => {
+                if (data.affectedRows > 0) {
+                    // alert("ok")
+                    setModal(true)
+                    setMessage("Succes")
+                    setNoPO('')
+                    setProdukSeri('')
+                    setJenisBarang('')
+                    setMerkBarang('')
+                    setQtyPO('')
+                } else {
+                    setModal(true)
+                    setMessage("Error")
+                }
+            })
+            .catch(error => console.log(error))
+    
+    }
+    
     return (
         <div>
             <Navigation/>
@@ -107,7 +111,14 @@ const CreateStockPO = () => {
                                 <label>Nomor PO</label>
                             </div>
                             <div className="col-9">
-                                <input type="text" value={noPO} required onChange={(e) => setNoPO(e.target.value)} onKeyDown={handleInputNumber} maxLength="5"></input>{isNoPOExist && <InvalidInputMessage message={"No. PO Sudah Ada"}/>}
+                                <input type="text" 
+                                        value={noPO}
+                                        required
+                                        onChange={(e) => setNoPO(e.target.value.replace(/\D/, ''))}
+                                        maxLength="5">
+                                </input>
+                                {isNoPOExist && <InvalidInputMessage message={"No. PO Sudah Ada"}/>}
+                                {noPO <=0 && <InvalidInputMessage message={"No. PO Invalid"}/>}
                             </div>
                             <div className="col-2">
                                 <label>Tanggal</label>
@@ -152,7 +163,12 @@ const CreateStockPO = () => {
                                 <label>Qty. PO</label>
                             </div>
                             <div className="col-9">
-                                <input type="text" value={qtyPO} onChange={(e) => setQtyPO(e.target.value)} onKeyDown={handleInputNumber} maxLength={3}></input>
+                                    <input type="text"
+                                        value={qtyPO}
+                                        onChange={(e) => setQtyPO(e.target.value.replace(/\D/, ''))}
+                                        maxLength={3}>
+                                    </input>
+                                    {qtyPO <= 0 && <InvalidInputMessage message={"Qty PO Minimal 1"} />}
                             </div>
                             <div className="col-2">
                                 <button type="submit" disabled={isDisabled()}>Submit</button>
