@@ -4,7 +4,7 @@ import ProductList from './menu/ProductCatalogue/ProductList';
 import ProductCategoryList from './menu/ProductCatalogue/ProductCategoryList';
 import ProductBrandList from './menu/ProductCatalogue/ProductBrandList';
 import WerehouseDelivery from './menu/TAG/WerehouseDelivery';
-import BappbTagList from './menu/TAG/BappbTagList';
+import WerehouseDeliveryList from './menu/TAG/WerehouseDeliveryList';
 import WerehouseReceptionList from './menu/TAG/WerehouseReceptionList';
 import CreateStockPO from './menu/CreateStock/CreateStockPO';
 import CreateStockReady from './menu/CreateStock/CreateStockReady';
@@ -37,7 +37,7 @@ function App() {
           <Route exact path="listSO" element={<PrivateRoute><ListSO /></PrivateRoute>} />
           <Route exact path="werehouseDelivery" element={<PrivateRoute><WerehouseDelivery /></PrivateRoute>} />
           <Route exact path="werehouseReceptionList" element={<PrivateRoute><WerehouseReceptionList /></PrivateRoute>} />
-          <Route exact path="bappbTagList" element={<PrivateRoute><BappbTagList /></PrivateRoute>} />
+          <Route exact path="werehouseDeliveryList" element={<PrivateRoute><WerehouseDeliveryList /></PrivateRoute>} />
           <Route exact path="accessDenied" element={<AccessDenied/>}/>
           <Route path='*' element={<NotFoundPage />} />
         </Routes>

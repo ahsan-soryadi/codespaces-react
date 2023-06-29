@@ -82,7 +82,7 @@ const SideNavbar = () => {
                             <div className="sidenav-sub">
                                 <Link to="/werehouseDelivery">PENGIRIMAN AG</Link>
                                 <Link to="/werehouseReceptionList" >LIST PENERIMAAN AG</Link>
-                                <Link to="/bappbTagList" >LIST BAPPB TAG</Link>
+                                <Link to="/werehouseDeliveryList" >LIST PENGIRIMAN AG</Link>
                             </div> 
                         </div>    
                     </div>

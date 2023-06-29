@@ -8,9 +8,9 @@ const WerehouseDelivery = () => {
     const [from, setFrom] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
 
-    const handleInputNumber = (e) =>{
-        useCheckNumber(e)
-    }
+    // const handleInputNumber = (e) =>{
+    //     useCheckNumber(e)
+    // }
     return (
         <div>
             <Navigation/>
@@ -42,7 +42,7 @@ const WerehouseDelivery = () => {
                                         type="text"
                                         maxLength="12"
                                         // value={phoneNumber}
-                                        onKeyDown={handleInputNumber}
+                                        // onKeyDown={handleInputNumber}
                                         // onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
                                         required
                                         // value={from}
@@ -107,7 +107,7 @@ const WerehouseDelivery = () => {
                                     </select>
                                 </div>
                                 <div className='col-2'>
-                                    <label>NO DO</label>
+                                    <label>NO Resi</label>
                                 </div>
                                 <div className='col-9'>
                                     <input
@@ -124,7 +124,8 @@ const WerehouseDelivery = () => {
                                     <input
                                         type="text"
                                         required
-                                        onKeyDown={handleInputNumber}
+                                        // onKeyDown={handleInputNumber}
+                                        maxLength={3}
                                         // value={from}
                                         // onChange={(e) => setFrom(e.target.value)}
                                     />

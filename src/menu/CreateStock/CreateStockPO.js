@@ -58,7 +58,6 @@ const CreateStockPO = () => {
 
    const handleSubmit = (e) => {
     e.preventDefault()
-        // console.log([noPO, jenisBarang, produkSeri, merkBarang, qtyPO, usernameID])
         fetch('http://localhost:3001/stock/createStockPO', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -81,7 +80,6 @@ const CreateStockPO = () => {
             })
             .then(data => {
                 if (data.affectedRows > 0) {
-                    // alert("ok")
                     setModal(true)
                     setMessage("Succes")
                     setNoPO('')

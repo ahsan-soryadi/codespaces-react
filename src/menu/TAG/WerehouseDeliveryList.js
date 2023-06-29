@@ -3,7 +3,7 @@ import TableTemplate from '../TableTemplate';
 import TitleMenuView from '../TitleMenuView';
 import Navigation from '../../Navigation';
 
-const BappbTagList = () => {
+const WerehouseDeliveryList = () => {
     const [tableData, setTableData] = useState(null);
     const tableHeaders = ["No", "Tanggal Penerimaan", "Nama Penerima", "Gudang Pengrim", "Gudang Penerima", "Jasa Pengiriman", "Qty", "No Do", "BAPPB"];
     
@@ -23,7 +23,7 @@ const BappbTagList = () => {
     return (
         <div>
             <Navigation/>
-            <TitleMenuView titleMenu="LIST BAPPB TAG"/>
+            <TitleMenuView titleMenu="LIST PENGIRIMAN GUDANG"/>
             <div className='main-content-wrapper'>
                 <div className='main-content'>
                 {tableData !== null ? <TableTemplate tableHeaders={tableHeaders} tableData={tableData}/> : "loading"}
@@ -32,4 +32,4 @@ const BappbTagList = () => {
         </div>
     )
 }
-export default BappbTagList;
+export default WerehouseDeliveryList;

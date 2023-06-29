@@ -39,3 +39,22 @@ export function useCheckNoPO(noPO){
     
     return isNoPOExist
 }
+
+export const useCheckSerialNumber = (serialNumber = [], checkStatus)=>{
+    const [isSerialNumberExist, setIsSerialNumberExist] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:3001/stock/checkSerialNumber', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: "same-origin",
+            body: JSON.stringify({serialNumber: serialNumber})
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("isSerialNumberExist : ", data)
+            setIsSerialNumberExist(data.isSerialNumberExist)
+        })
+        .catch(error => console.log(error))
+    }, [checkStatus])
+    return isSerialNumberExist
+}
