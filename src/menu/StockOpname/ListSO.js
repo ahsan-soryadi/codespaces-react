@@ -5,7 +5,7 @@ import Navigation from '../../Navigation';
 
 const ListSO = () => {
     const [tableData, setTableData] = useState(null);
-    const tableHeaders = ["Id Stock Opname", "Nama Gudang", "Created By", "Tgl Stock Opname", "Stock Approval", "NIK Approver", "Approver", "Detail", "Download BA", "Upload BA/ Download Hasil Scan"];
+    const tableHeaders = ["Id Stock Opname", "Nama Gudang", "Created By", "Tgl Stock Opname", "Detail"];
     
     useEffect(()=> {
         let ignore = false;
@@ -26,7 +26,7 @@ const ListSO = () => {
             <TitleMenuView titleMenu="LIST SO"/>
             <div className='main-content-wrapper'>
                 <div className='main-content'>
-                {tableData !== null ? <TableTemplate tableHeaders={tableHeaders} tableData={tableData}/> : "loading"}
+                {tableData !== null ? <TableTemplate tableHeaders={tableHeaders} tableData={tableData} isPagingEnabled={true}/> : "loading"}
                 </div>
             </div>
         </div>

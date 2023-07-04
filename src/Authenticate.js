@@ -9,7 +9,6 @@ const Authenticate = ()=>{
             headers: {'Content-type': 'application/json', 'authorization': `Bearer ${document.cookie}`}
         }).then(response => response.json())
         .then(data => {
-            // console.log("hasil authenticate = ", data)
             setIsLogin(data.result);
         })
         .catch(error => console.log(error));

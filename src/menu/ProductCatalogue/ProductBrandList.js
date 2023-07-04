@@ -5,15 +5,15 @@ import Navigation from '../../Navigation';
 
 const ProductBrandList = () => {
     const [tableData, setTableData] = useState(null);
-    const tableHeaders = ["Merk", "Jenis Product"]
+    const tableHeaders = ["No", "Jenis Barang", "Produk Seri", "Merk Barang", ]
     
     useEffect(()=> {
         let ignore = false;
-        fetch('./dataDummy/wereHouseDeliveryList.json')
+        fetch('http://localhost:3001/barang/getAllBarang')
         .then(response => response.json())
-        .then(json => {
+        .then(data => {
             if(!ignore){
-                setTableData(json);
+                setTableData(data);
             }
             
         })
@@ -21,9 +21,9 @@ const ProductBrandList = () => {
             ignore = true;
         }
     },[])
-    const handleButtonClick = () => {
-        alert("button clicked!")
-    }
+    // const handleButtonClick = () => {
+    //     alert("button clicked!")
+    // }
     return (
         <div>
             <Navigation/>

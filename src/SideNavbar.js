@@ -57,9 +57,9 @@ const SideNavbar = () => {
                             
                             <li onClick={handleHidden}>KATALOG PRODUK <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
-                                <Link to="/productList" >PRODUCT LIST</Link>
-                                <Link to="/productCategoryList" >LIST JENIS PRODUCT</Link>
-                                <Link to="/productBrandList" >LIST MERK PRODUCT</Link>
+                                <Link to="/productList" >KATALOG</Link>
+                                {/* <Link to="/productCategoryList" >LIST JENIS PRODUCT</Link>
+                                <Link to="/productBrandList" >LIST MERK PRODUCT</Link> */}
                             </div> 
                             {role && role === 'gudang_pusat' ? 
                             <>
@@ -76,6 +76,8 @@ const SideNavbar = () => {
                             </div>  */}
                             <li onClick={handleHidden}>STOCK OPNAME <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
+                                <Link to="/createStockOpname">CREATE STOCK OPNAME</Link>
+                                <Link to="/assetList">LIST ASSET</Link>
                                 <Link to="/listSO" >LIST SO</Link>
                             </div>   
                             <li onClick={handleHidden}>TAG <i className="bi bi-caret-down-fill"></i></li>

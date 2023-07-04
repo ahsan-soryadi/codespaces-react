@@ -33,7 +33,7 @@ body.active-modal {
   z-index: 1000;
 }
 .modal-content {
-  position: absolute;
+  position: fixed;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -276,7 +276,7 @@ i.active {
   text-align: left;
   /* display: inline; */
 }
-.form-control input,  .form-control select {
+.form-control input,  .form-control select, .form-control textarea {
   width: 250px;
   padding: 4px 10px;
   margin: 10px 10px;
@@ -284,6 +284,13 @@ i.active {
   border-radius: 5px;
   /* box-sizing: border-box; */
   /* display: inline-block; */
+}
+
+.form-control input[type= "checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+
 }
 
 .form-control input, .form-control select, .form-control checkbox:focus {
@@ -300,12 +307,21 @@ i.active {
   border-radius: 5px;
 }
 
+.form-control button.blue {
+  background:#0d38a3;
+}
+
 .form-control button:hover {
   background: #c95555;
 }
-
+.form-control button.blue:hover {
+  background: #556ec9;
+}
 .form-control button:disabled {
   background: #c95555;
+}
+.form-control button.blue:disabled {
+  background: #556ec9;
 }
 
 thead {

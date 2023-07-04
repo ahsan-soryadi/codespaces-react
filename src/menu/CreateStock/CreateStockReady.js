@@ -12,10 +12,9 @@ const CreateStockReady = () => {
     const usernameID = localStorage.getItem('usernameID')
     const [modal, setModal] = useState(false)
     const [message, setMessage] = useState('')
-    const [checkStatus, setCheckStatus] = useState(false)
+    // const [checkStatus, setCheckStatus] = useState(false)
     let isNoPOExist = useCheckNoPO(noPO)
-    let isSerialNumberExist = useCheckSerialNumber(serialNumber, checkStatus)
-
+    const isSerialNumberExist = useCheckSerialNumber(serialNumber)
 
     const isDisabled = () => {
         if(noPO.length > 0 &&
@@ -37,41 +36,42 @@ const CreateStockReady = () => {
 
     const handleSubmit = (e)=> {
         e.preventDefault()
+        // setCheckStatus(currentStatus => {
+        //     setCheckStatus(!currentStatus)
+        //   })
         const data = []
         for(let i=0; i< serialNumber.length; i++){
             data.push({
                 ...dataPO, peruntukan: peruntukan, serialNumber: serialNumber[i]
             })
         }
-        console.log(data)
+        // console.log(data)
         console.log("isSerialNumber from create Stock : ", isSerialNumberExist)
         //hanya submit kalau serial number tidak ada
-        if(isSerialNumberExist.length != 0 && isSerialNumberExist.every(item => item === 'false')){
-            alert('ok')
+        if(isSerialNumberExist.length !== 0 && isSerialNumberExist.every(item => item === 'false')){
+            fetch('http://localhost:3001/stock/addStockReady', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'same-origin',
+                body: JSON.stringify({ data: data })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'ok') {
+                        setModal(true)
+                        setMessage("Success")
+                        setNoPO('')
+                        setPeruntukan('')
+                        setSerialNumber([])
+                        setDataPO({ 'jenisBarang': '', 'produkSeri': '', 'merkBarang': '' })
+                        setSerialNumberInput('')
+                    } else {
+                        setModal(true)
+                        setMessage("Error")
+                    }
+                })
+                .catch(error => console.log(error))
         }
-        setCheckStatus(!checkStatus)
-        // fetch('http://localhost:3001/stock/addStockReady', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     credentials: 'same-origin',
-        //     body: JSON.stringify({data: data})
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     if(data.message === 'ok'){
-        //         setModal(true)
-        //         setMessage("Success")
-        //         setNoPO('')
-        //         setPeruntukan('')
-        //         setSerialNumber([])
-        //         setDataPO({'jenisBarang': '', 'produkSeri': '', 'merkBarang':''})
-        //         setSerialNumberInput('')
-        //     } else {
-        //         setModal(true)
-        //         setMessage("Error")
-        //     }
-        // })
-        // .catch(error => console.log(error))
     }
 
     const getDataPO = (e) => {

@@ -23,6 +23,8 @@ const Login = () => {
                 localStorage.setItem("userName", data.user.USERNAME)
                 localStorage.setItem("usernameID", data.user.ID)
                 localStorage.setItem("role", data.user.ROLE)
+                localStorage.setItem("lokasiGudangID", data.user.LOKASI_GUDANGID)
+                localStorage.setItem("lokasiGudang", data.user.LOKASIGUDANG)
                 navigate('/home')
             } else {
                 // console.log("outside ok")

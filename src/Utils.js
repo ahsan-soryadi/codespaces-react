@@ -51,10 +51,32 @@ export const useCheckSerialNumber = (serialNumber = [], checkStatus)=>{
         })
         .then(response => response.json())
         .then(data => {
-            console.log("isSerialNumberExist : ", data)
+            // console.log("isSerialNumberExist : ", data)
             setIsSerialNumberExist(data.isSerialNumberExist)
         })
         .catch(error => console.log(error))
-    }, [checkStatus])
+        return () => setIsSerialNumberExist([])
+    }, [serialNumber, checkStatus])
     return isSerialNumberExist
+}
+
+export const useGetBarangBySerialNumber = (serialNumber = '', checkStatus) => {
+    const [barang, setBarang] = useState('')
+    useEffect(()=>{
+        fetch('http://localhost:3001/barang/getBarangBySerialNumber', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: "same-origin",
+            body: JSON.stringify({serialNumber: serialNumber})
+        })
+        .then(response => response.json())
+        .then(data => {
+            // console.log("isSerialNumberExist : ", data)
+            setBarang(data)
+        })
+        .catch(error => console.log(error))
+        return ()=> setBarang('')
+    },[checkStatus])
+
+    return barang
 }

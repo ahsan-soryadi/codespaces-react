@@ -17,6 +17,8 @@ import PrivateRoute from './PrivateRoute';
 import GudangPusatRoute from './GudangPusatRoute';
 import NotFoundPage from './NotFoundPage';
 import AccessDenied from './AccessDenied';
+import CreateStockOpname from './menu/StockOpname/CreateStockOpname';
+import AssetList from './menu/StockOpname/AssetList';
 
 function App() {
   // console.log("user data in main app : ", user)
@@ -26,7 +28,7 @@ function App() {
           <Route exact path="/" element={<Login/>} />
           <Route exact path="login" element={<Login/>}/>
           <Route exact path="home" element={<PrivateRoute><Home/></PrivateRoute>} />
-          <Route exact path="createStockPO" element={<PrivateRoute><GudangPusatRoute><CreateStockPO/></GudangPusatRoute></PrivateRoute>} />
+          <Route exact path="/createStockPO" element={<PrivateRoute><GudangPusatRoute><CreateStockPO/></GudangPusatRoute></PrivateRoute>} />
           <Route exact path="createStockReady" element={<PrivateRoute><GudangPusatRoute><CreateStockReady /></GudangPusatRoute></PrivateRoute>} />
           <Route exact path="productList" element={<PrivateRoute><ProductList /></PrivateRoute>} />
           <Route exact path="productCategoryList" element={<PrivateRoute><ProductCategoryList /></PrivateRoute>} />
@@ -34,6 +36,8 @@ function App() {
           <Route exact path="editItemAllocation" element={<PrivateRoute><GudangPusatRoute><EditItemAllocation /></GudangPusatRoute></PrivateRoute>} />
           <Route exact path="assetRequestList" element={<PrivateRoute><AssetrequestList /></PrivateRoute>} />
           <Route exact path="changeOfUseList" element={<PrivateRoute><ChangeOfUseList /></PrivateRoute>} />
+          <Route exact path="createStockOpname" element={<PrivateRoute><CreateStockOpname /></PrivateRoute>} />
+          <Route exact path="assetList" element={<PrivateRoute><AssetList /></PrivateRoute>} />
           <Route exact path="listSO" element={<PrivateRoute><ListSO /></PrivateRoute>} />
           <Route exact path="werehouseDelivery" element={<PrivateRoute><WerehouseDelivery /></PrivateRoute>} />
           <Route exact path="werehouseReceptionList" element={<PrivateRoute><WerehouseReceptionList /></PrivateRoute>} />

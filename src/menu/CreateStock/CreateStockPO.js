@@ -130,9 +130,9 @@ const CreateStockPO = () => {
                             <div className="col-9">
                                 <select required value={jenisBarang} onChange={(e) => setJenisBarang(e.target.value)}>
                                     <option>--Pilih Jenis Barang--</option>
-                                    <option value="laptop">Laptop</option>
-                                    <option value="tangga">Tangga</option>
-                                    <option value="kabelFO">Kabel FO</option>
+                                    <option value="Laptop">Laptop</option>
+                                    <option value="Tangga">Tangga</option>
+                                    <option value="kabel FO">Kabel FO</option>
                                 </select>
                             </div>
                             <div className="col-2">
@@ -152,9 +152,9 @@ const CreateStockPO = () => {
                             <div className="col-9">
                                 <select required value={merkBarang} onChange={(e) => setMerkBarang(e.target.value)}>
                                     <option>--Pilih Merk Barang</option>
-                                    <option value="asus">Asus</option>
-                                    <option value="krisbow">Krisbow</option>
-                                    <option value="jembo">Jembo</option>
+                                    <option value="Asus">Asus</option>
+                                    <option value="Krisbow">Krisbow</option>
+                                    <option value="Jembo">Jembo</option>
                                 </select>
                             </div>
                             <div className="col-2">
