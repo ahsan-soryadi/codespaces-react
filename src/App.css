@@ -47,6 +47,22 @@ body.active-modal {
   z-index: 1000;
 } 
 
+.modal-content.lg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 80%;
+  min-width: 80%;
+  height: 100%;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
 .modal-content>p {
   margin: 70px auto auto;
   font-size: 22px;

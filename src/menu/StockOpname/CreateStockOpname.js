@@ -50,7 +50,7 @@ const CreateStockOpname = () => {
     },[])
 
     const isDisabled = () =>{
-        if(barangData.length > 0 && isSetuju){
+        if(barangData.length > 0 || isSetuju){
             return false
         } else {
             return true
@@ -81,7 +81,6 @@ const CreateStockOpname = () => {
             
             let newBarangData = {no: data.no+1, serialNumber: data.serialNumber, match: matchString, jenisBarang: jenisBarang }
             setBarangData([...barangData, newBarangData])
-            // console.log('barangData = ', barangData)
         })
         .catch(error => console.log(error))
     }
@@ -125,6 +124,7 @@ const CreateStockOpname = () => {
             } else {
                 setModal(true)
                 setMessage('Error')
+                setIsSetuju(false)
             }
         })
         .catch(error => console.log(error))
@@ -186,7 +186,6 @@ const CreateStockOpname = () => {
                                                 <table className='table table-striped'>
                                                     <thead>
                                                         <tr>
-                                                            {/* <td>No</td> */}
                                                             <td>Serial Number</td>
                                                             <td>Match / Not Match</td>
                                                         </tr>
@@ -198,7 +197,6 @@ const CreateStockOpname = () => {
                                                                 if (barang.no - 1 === idx) {
                                                                     return (
                                                                         <tr key={'tr' + i}>
-                                                                            {/* <td key={'td'+i}>{i}</td> */}
                                                                             <td key={'td' + barang.serialNumber}>{barang.serialNumber}</td>
                                                                             <td key={'td' + barang.match}>{barang.match}</td>
                                                                         </tr>
@@ -217,7 +215,7 @@ const CreateStockOpname = () => {
                             <div className='row'>
                                 <div className='col-6'>
                                     <label>
-                                        <input type='checkbox' value={isSetuju} onChange={() => setIsSetuju(current => !current)} />
+                                        <input type='checkbox' value={isSetuju} checked={isSetuju} onChange={() => setIsSetuju(current => !current)} />
                                         Data yang saya masukkan adalah benar
                                     </label>
                                 </div>

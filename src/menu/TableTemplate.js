@@ -5,6 +5,7 @@ const TableTemplate = (props) => {
     const tableHeaders = props.tableHeaders
     const tableData = props.tableData
     let isPagingEnabled = props.isPagingEnabled
+    const setCekButton = props.setCekButton
     // console.log("tabel data = ", tableData)
     const [currentPage, setCurrentPage] = useState(1)
     const itemsPerPage = 5;
@@ -32,12 +33,14 @@ const TableTemplate = (props) => {
 
     const handleButtonClick = (e) =>{
         e.preventDefault();
-        console.log(e)
+        // console.log(e)
         const elementTarget = e.target.title;
         // if(elementTarget === "download"){
         //     alert("tombol download ditekan")
-        if(elementTarget === "action") {
-            alert("tombol action ditekan")
+        if(elementTarget.includes("action")) {
+            // alert("tombol action ditekan")
+            const id = e.target.title.split('-')
+            setCekButton(id[1])
         }
         
     }
