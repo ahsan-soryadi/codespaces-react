@@ -18,10 +18,12 @@ const ModalStockOpnameDetails = ({modal, setModal, modalData, barang}) => {
                     <div onClick={toggleModal} className="overlay"></div>
                     <div className="modal-content lg">
                         {
+                            //jenis barang
                             barang.length > 0 && barang.map((item, idx) => {
                                 const jenisBarang = item.jenis_barang.charAt(0).toUpperCase() + item.jenis_barang.slice(1)
                                 const merkBarang = item.merk_barang.charAt(0).toUpperCase() + item.merk_barang.slice(1)
                                 const matchStatusCount = {"match": 0, "notMatch": 0}
+                                //list match dan no match
                                 const newModalData = modalData.filter(item => item.jenisBarang == jenisBarang)
                                                     .map((item, idx) => {
                                                         if(item.matchStatus == 'Match'){
