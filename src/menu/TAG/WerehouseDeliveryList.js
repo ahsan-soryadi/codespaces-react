@@ -2,31 +2,88 @@ import { useState, useEffect } from 'react';
 import TableTemplate from '../TableTemplate';
 import TitleMenuView from '../TitleMenuView';
 import Navigation from '../../Navigation';
+import ModalDeliveryDetails from './ModalDeliveryDetails';
 
 const WerehouseDeliveryList = () => {
     const [tableData, setTableData] = useState(null);
-    const tableHeaders = ["No", "Tanggal Penerimaan", "Nama Penerima", "Gudang Pengrim", "Gudang Penerima", "Jasa Pengiriman", "Qty", "No Do", "BAPPB"];
+    const [detailId, setDetailId] = useState(0)
+    const [modal, setModal] = useState(false)
+    const [detailData, setDetailData] = useState([])
+    const [detailBarang, setDetailBarang] = useState([])
+    const tableHeaders = ["No", "Nama Pengirim", "Gudang Pengrim", "Gudang Penerima", "Tgl Pengiriman", "Jenis Pengiriman", "Ekspedisi", "Qty" ,"No Resi", "Detail"];
     
     useEffect(()=> {
         let ignore = false;
-        fetch('./dataDummy/wereHouseDeliveryList.json')
+        fetch('http://localhost:3001/tag/getAllPengirimanAg', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'same-origin',
+            body: JSON.stringify({locationId: localStorage.getItem('lokasiGudangID')})
+        })
         .then(response => response.json())
-        .then(json => {
+        .then(data => {
             if(!ignore){
-                setTableData(json);
+                setTableData(data.map(item => {
+                    if(item.jasaPengiriman == null) {
+                        item.jasaPengiriman = ' '
+                    }
+                    item.action = "<button type=\"button\" class=\"btn btn-sm btn-primary\" title=\"action-"+item.id+"\">Cek</button>"
+                    return item
+                }));
             }
         })
         return () => {
             ignore = true;
         }
     },[])
+
+    const getDetails = async (detailId = 0) => {
+        const response  =  await fetch('http://localhost:3001/tag/getPengirimanAgById', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                credentials: "same-origin",
+                                body: JSON.stringify({pengirimanAgId: detailId})
+                            })
+        const data = await response.json()
+        setDetailData(data[0])
+    }
+
+    const getPengirimanDetails = async (detailId = 0) => {
+        const response = await fetch('http://localhost:3001/tag/getDetailPengirimanAgById', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            credentials: "same-origin",
+                            body: JSON.stringify({pengirimanAgId: detailId})
+                        })
+        const data = await response.json()
+        setDetailBarang(data.map((item, idx) => {
+            let no = idx + 1
+            return {no, ...item}
+        }))
+    }
+
+    const setCekButton = (id) =>{
+        setDetailId(id)
+        setModal(true)
+    }
+
+    useEffect(() => {
+        // console.log("detail id = ", detailId)
+        getDetails(detailId)
+        getPengirimanDetails(detailId)
+    }, [detailId])
+    
     return (
         <div>
             <Navigation/>
             <TitleMenuView titleMenu="LIST PENGIRIMAN GUDANG"/>
+            {
+                (detailData !== undefined  && detailBarang !== undefined) && 
+                <ModalDeliveryDetails modal={modal} setModal={setModal} modalData={detailData} barang={detailBarang}/>
+            } 
             <div className='main-content-wrapper'>
                 <div className='main-content'>
-                {tableData !== null ? <TableTemplate tableHeaders={tableHeaders} tableData={tableData}/> : "loading"}
+                {tableData !== null ? <TableTemplate tableHeaders={tableHeaders} tableData={tableData} setCekButton={setCekButton}/>  : "loading"}
                 </div>
             </div>
         </div>

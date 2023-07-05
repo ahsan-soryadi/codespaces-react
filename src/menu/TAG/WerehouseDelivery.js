@@ -24,7 +24,10 @@ const WerehouseDelivery = () => {
     useEffect(() => {
         fetch('http://localhost:3001/gudang/getAllGudang')
         .then(response => response.json())
-        .then(data => setGudangList(data))
+        .then(data => {
+            const newData = data.filter(item => item.id !== parseInt(localStorage.getItem('lokasiGudangID')))
+            setGudangList(newData)
+        })
         .catch(error => console.log(error))
     },[])
 
@@ -72,7 +75,7 @@ const WerehouseDelivery = () => {
                         lokasiGudangId: localStorage.getItem('lokasiGudangID'),
                         tanggalPengiriman: tanggalPengiriman,
                         jenisPengiriman: jenisPengiriman,
-                        jasaEkspedisi: jasaEkspedisi,
+                        jasaPengiriman: jasaEkspedisi,
                         noResi: noResi,
                         phoneNumber: phoneNumber,
                         qty: qty,

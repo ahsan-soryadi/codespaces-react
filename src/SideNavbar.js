@@ -83,8 +83,8 @@ const SideNavbar = () => {
                             <li onClick={handleHidden}>TAG <i className="bi bi-caret-down-fill"></i></li>
                             <div className="sidenav-sub">
                                 <Link to="/werehouseDelivery">PENGIRIMAN AG</Link>
-                                <Link to="/werehouseReceptionList" >LIST PENERIMAAN AG</Link>
                                 <Link to="/werehouseDeliveryList" >LIST PENGIRIMAN AG</Link>
+                                <Link to="/werehouseReceptionList" >LIST PENERIMAAN AG</Link>
                             </div> 
                         </div>    
                     </div>

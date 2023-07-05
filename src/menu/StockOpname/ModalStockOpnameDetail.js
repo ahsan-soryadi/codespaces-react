@@ -1,3 +1,4 @@
+import ModalTitleView from "../ModalTitleView";
 import TableTemplate from "../TableTemplate";
 const ModalStockOpnameDetails = ({modal, setModal, modalData, barang}) => {
     const toggleModal = (e) => {
@@ -17,6 +18,7 @@ const ModalStockOpnameDetails = ({modal, setModal, modalData, barang}) => {
                 <div className="modal-wrapper">
                     <div onClick={toggleModal} className="overlay"></div>
                     <div className="modal-content lg">
+                    <ModalTitleView titleMenu={"DETAIL STOCK OPNAME"}/>
                         {
                             //jenis barang
                             barang.length > 0 && barang.map((item, idx) => {
@@ -35,7 +37,7 @@ const ModalStockOpnameDetails = ({modal, setModal, modalData, barang}) => {
                                                     })
                                 return(
                                     <>
-                                    <div className="row rows-cols-5" style={{marginTop:"20px"}}>
+                                    <div className="row rows-cols-5" style={{marginTop:"60px"}}>
                                     <div className="col">
                                         <label>Jenis Barang: <strong>{jenisBarang}</strong></label>
                                     </div>
