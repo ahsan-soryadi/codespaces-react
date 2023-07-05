@@ -9,7 +9,7 @@ const CreateStockReady = () => {
     const [dataPO, setDataPO] = useState({'jenisBarang': '', 'produkSeri': '', 'merkBarang':''})
     const [serialNumber, setSerialNumber] = useState([])
     const [serialNumberInput, setSerialNumberInput] = useState('')
-    const usernameID = localStorage.getItem('usernameID')
+    // const usernameID = localStorage.getItem('usernameID')
     const [modal, setModal] = useState(false)
     const [message, setMessage] = useState('')
     // const [checkStatus, setCheckStatus] = useState(false)

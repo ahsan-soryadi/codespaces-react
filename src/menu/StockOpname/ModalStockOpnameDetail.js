@@ -24,9 +24,9 @@ const ModalStockOpnameDetails = ({modal, setModal, modalData, barang}) => {
                                 const merkBarang = item.merk_barang.charAt(0).toUpperCase() + item.merk_barang.slice(1)
                                 const matchStatusCount = {"match": 0, "notMatch": 0}
                                 //list match dan no match
-                                const newModalData = modalData.filter(item => item.jenisBarang == jenisBarang)
+                                const newModalData = modalData.filter(item => item.jenisBarang === jenisBarang)
                                                     .map((item, idx) => {
-                                                        if(item.matchStatus == 'Match'){
+                                                        if(item.matchStatus === 'Match'){
                                                             matchStatusCount.match +=1
                                                         } else {
                                                             matchStatusCount.notMatch += 1
