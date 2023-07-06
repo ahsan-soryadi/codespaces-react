@@ -10,6 +10,7 @@ const WerehouseDeliveryList = () => {
     const [modal, setModal] = useState(false)
     const [detailData, setDetailData] = useState([])
     const [detailBarang, setDetailBarang] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     const tableHeaders = ["No", "Nama Pengirim", "Gudang Pengrim", "Gudang Penerima", "Tgl Pengiriman", "Jenis Pengiriman", "Ekspedisi", "Qty" ,"No Resi", "Detail"];
     
     useEffect(()=> {
@@ -30,6 +31,7 @@ const WerehouseDeliveryList = () => {
                     item.action = "<button type=\"button\" class=\"btn btn-sm btn-primary\" title=\"action-"+item.id+"\">Cek</button>"
                     return item
                 }));
+                setIsLoading(false)
             }
         })
         return () => {
@@ -83,7 +85,12 @@ const WerehouseDeliveryList = () => {
             } 
             <div className='main-content-wrapper'>
                 <div className='main-content'>
-                {tableData !== null ? <TableTemplate tableHeaders={tableHeaders} tableData={tableData} setCekButton={setCekButton}/>  : "loading"}
+                {isLoading && <p style={{color:"black"}}>Loading Data... </p>}
+                {
+                tableData !== null && tableData.length > 0 ? 
+                <TableTemplate tableHeaders={tableHeaders} tableData={tableData} setCekButton={setCekButton}/>  : 
+                <p style={{color:"black"}}>No Data</p>
+                }
                 </div>
             </div>
         </div>

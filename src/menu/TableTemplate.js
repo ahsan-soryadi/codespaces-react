@@ -6,6 +6,7 @@ const TableTemplate = (props) => {
     const tableData = props.tableData
     let isPagingEnabled = props.isPagingEnabled
     const setCekButton = props.setCekButton
+    const setValidateButton = props.setValidateButton
     // console.log("tabel data = ", tableData)
     const [currentPage, setCurrentPage] = useState(1)
     const itemsPerPage = 5;
@@ -41,6 +42,9 @@ const TableTemplate = (props) => {
             // alert("tombol action ditekan")
             const id = e.target.title.split('-')
             setCekButton(id[1])
+        } else if(elementTarget.includes("validate")){
+            const id = e.target.title.split('-')
+            setValidateButton(id[1])
         }
         
     }
