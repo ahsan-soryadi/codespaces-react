@@ -5,6 +5,7 @@ import TitleMenuView from "../TitleMenuView";
 
 const AssetList = ()=> {
     const [tableData, setTableData] = useState(null);
+    const [isLoading, setIsLoading] = useState(true)
     const tableHeaders = ["Id", "Jenis Barang", "Merk", "Produk Seri", "Serial Number", "Peruntukan"];
     
     useEffect(()=> {
@@ -22,6 +23,7 @@ const AssetList = ()=> {
         .then(response => response.json())
         .then(data => {
             if(!ignore){
+                setIsLoading(false)
                 setTableData(data);
             }
         })
@@ -35,7 +37,11 @@ const AssetList = ()=> {
             <TitleMenuView titleMenu="LIST ASSET"/>
             <div className='main-content-wrapper'>
                 <div className='main-content'>
-                {tableData !== null ? <TableTemplate tableHeaders={tableHeaders} tableData={tableData} isPagingEnabled={true}/> : "loading"}
+                {isLoading && <p style={{color:"black"}}>Loading Data... </p>}
+                {tableData !== null && tableData.length > 0 ? <TableTemplate tableHeaders={tableHeaders} tableData={tableData} isPagingEnabled={true}/> 
+                : 
+                <p style={{color:"black"}}>No Data </p>
+                }
                 </div>
             </div>
         </div>

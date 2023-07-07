@@ -30,8 +30,8 @@ const ListSO = () => {
                 if(data.length > 0 ){
                    const newData =  data.map(item => [item.id, item.lokasiGudang, item.createdBy, item.tanggal_so, "<button type=\"button\" class=\"btn btn-sm btn-primary\" title=\"action-"+item.id+"\">Cek</button>"])
                     setTableData(newData)
-                    setIsLoading(false)
                 }
+                setIsLoading(false)
                 
             }
         })
@@ -82,9 +82,10 @@ const ListSO = () => {
             {detailData.length > 0 && <ModalStockOpnameDetails modal={modal} setModal={setModal} modalData={detailData} barang={barangCatalogue}></ModalStockOpnameDetails>}
             <div className='main-content-wrapper'>
                 <div className='main-content'>
-                {isLoading && "Loading..."}
-                {(tableData !== null && !isLoading) && 
-                    <TableTemplate tableHeaders={tableHeaders} tableData={tableData} isPagingEnabled={true} setCekButton={setCekButton}/>
+                {isLoading &&<p style={{color:"black"}}>Loading Data... </p>}
+                {(tableData !== null && !isLoading) ? 
+                    <TableTemplate tableHeaders={tableHeaders} tableData={tableData} isPagingEnabled={true} setCekButton={setCekButton}/> 
+                    : <p style={{color:"black"}}>No Data </p>
                 }
                 </div>
             </div>

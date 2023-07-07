@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Authenticate = ()=>{
+const Authenticate = (children)=>{
     const [isLogin, setIsLogin] = useState(null);
     useEffect(() => {
         fetch('http://localhost:3001/user/auth', {
@@ -12,7 +12,7 @@ const Authenticate = ()=>{
             setIsLogin(data.result);
         })
         .catch(error => console.log(error));
-    },[])
+    },[children])
     
         
     // console.log(isLogin)

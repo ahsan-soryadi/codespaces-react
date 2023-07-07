@@ -2,13 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Logout = ()=> {
-    // const [result, setResult] = useState()
-    // fetch('http://localhost:3001/user/logout', {
-    //     method: 'GET'
-    // })
-    // .then(response => response.json())
-    // .then(data => data.result)
-    // .catch(error => console.log(error))
     const navigate = useNavigate()
     const handleLogout = (e) => {
         e.preventDefault();
@@ -27,7 +20,7 @@ const Logout = ()=> {
     }
     return (
         <>
-            <li onClick={handleLogout}>LOGOUT</li>
+           <li style={{color:"#a30d0d"}} onClick={handleLogout}><h5>LOGOUT</h5></li>
         </>
     )
 }
