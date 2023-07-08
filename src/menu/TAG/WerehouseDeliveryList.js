@@ -73,7 +73,7 @@ const WerehouseDeliveryList = () => {
         // console.log("detail id = ", detailId)
         getDetails(detailId)
         getPengirimanDetails(detailId)
-    }, [detailId])
+    }, [detailId, modal])
     
     return (
         <div>

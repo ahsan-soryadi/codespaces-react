@@ -28,19 +28,19 @@ const WerehouseReceptionList = () => {
         .then(data => {
             if(!ignore){
                 setTableData(data.map(item => {
-                    let disabled = false;
+                    let isDisabled = '';
                     if(item.jasaPengiriman === null) {
                         item.jasaPengiriman = ' '
                     }
                     if(item.tanggalPenerimaan === null){
                         item.tanggalPenerimaan = ' '
-                        disabled = false
+                        isDisabled = ''
                     } else {
                         item.tanggalPenerimaan = <strong>Diterima</strong>
-                        disabled = true
+                        isDisabled = 'disabled'
                     }
                     item.detail = "<button type=\"button\" class=\"btn btn-sm btn-primary\" title=\"action-"+item.id+"\">Cek</button>"
-                    item.action = "<button type=\"button\" class=\"btn btn-sm btn-primary\" disabled=\""+disabled +"\" title=\"validate-"+item.id+"\">Validasi</button>"
+                    item.action = "<button type=\"button\" class=\"btn btn-sm btn-primary\" "+isDisabled+" title=\"validate-"+item.id+"\">Validasi</button>"
                     return item
                 }))
                 setIsLoading(false)
@@ -95,7 +95,7 @@ const WerehouseReceptionList = () => {
         getDetails(detailId)
         getPengirimanDetails(detailId)
 
-    }, [detailId])
+    }, [detailId, modal])
     return (
         <div>
             <Navigation/>

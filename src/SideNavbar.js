@@ -40,7 +40,7 @@ const SideNavbar = () => {
     return (
         <div className="sidenav">
                         <div className="profile">
-                        <i style={{color: "#dadada", fontSize:"100px"}} class="bi bi-person-fill"></i>
+                        <i style={{color: "#dadada", fontSize:"100px"}} className="bi bi-person-fill"></i>
                         </div>
                         <div className="userName">
                            <p>{localStorage.getItem('userName')}</p>

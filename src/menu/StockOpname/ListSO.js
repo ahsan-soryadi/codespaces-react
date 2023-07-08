@@ -73,7 +73,7 @@ const ListSO = () => {
     useEffect(()=> {
         getDetails(detailId)
         getBarangCatalogue()
-    }, [detailId])
+    }, [detailId, modal])
     
     return (
         <div>

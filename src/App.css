@@ -305,7 +305,7 @@ i.active {
 .main-content-wrapper {
   width: 100%;
   margin-top: 100px;
-  color:#a30d0d;
+  /* color:#a30d0d; */
   padding: 20px 10px 20px 260px;
   /* background-color: #282c34; */
   /* z-index: 100; */
@@ -415,3 +415,20 @@ i.bi-download:hover {
   .sidenav {padding-top: 15px;}
 }
 
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 1200px;
+  height: 600px;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}

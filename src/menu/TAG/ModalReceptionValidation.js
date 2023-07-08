@@ -64,7 +64,9 @@ const ModalReceptionValidation = ({modal, setModal, modalData, barang = []}) => 
             credentials: 'same-origin',
             body: JSON.stringify({
                 pengirimanAgId: modalData.id,
-                tangaalPenerimaan: tanggalPenerimaan
+                tanggalPenerimaan: tanggalPenerimaan,
+                gudangPenerima: modalData.gudangPenerima,
+                serialNumber: serialNumber
             })
         })
         .then(response => response.json())
@@ -73,6 +75,10 @@ const ModalReceptionValidation = ({modal, setModal, modalData, barang = []}) => 
                 setModalConfirm(true)
                 setMessage('Success')
                 setSerialNumber([])
+            } else {
+                setModalConfirm(true)
+                setMessage('Erroe')
+                
             }
         })
         .catch(error => console.log(error))

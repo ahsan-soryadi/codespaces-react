@@ -80,7 +80,7 @@ const WerehouseDelivery = () => {
                         phoneNumber: phoneNumber,
                         qty: qty,
                         serialNumber: serialNumber,
-                        gudangPenerima: gudangPenerima
+                        gudangPenerima: gudangPenerima.substring(0,1)
 
                     })
             })
@@ -166,7 +166,8 @@ const WerehouseDelivery = () => {
                                         required
                                         value={gudangPenerima}
                                         onChange={(e) => {
-                                            setGudangPenerima(e.target.value.substring(0,1))
+                                            console.log(e.target.value)
+                                            setGudangPenerima(e.target.value)
                                             // setGudangPenerima(e.target.value)
                                         }}
                                     >
