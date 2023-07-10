@@ -418,13 +418,12 @@ i.bi-download:hover {
 .slideshow {
   margin: 0 auto;
   overflow: hidden;
-  max-width: 1200px;
-  height: 600px;
+  max-width: 1400px;
 }
 
 .slideshowSlider {
   white-space: nowrap;
-  transition: ease 1000ms;
+  transition: ease 2000ms;
 }
 
 .slide {

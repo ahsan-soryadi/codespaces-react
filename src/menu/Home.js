@@ -3,12 +3,9 @@ import '../App.css';
 import Navigation from '../Navigation';
 
 const Home = () => {
-    const [userName, setUserName] = useState(localStorage.getItem('userName'))
-    const [role, setRole] = useState(localStorage.getItem('role'))
+    const userName = localStorage.getItem('userName')
     
-    const images = ['https://www.extensiv.com/hubfs/Skubana/Blog%20Pages/Imported_Blog_Media/what-is-a-wms-stand-alone-2-1.jpeg',
-"https://www.knic.co.id/uploads/6/apa-itu-warehouse-management.jpg",
-"https://6798661.fs1.hubspotusercontent-na1.net/hubfs/6798661/Warehouse%20vs.Fulfillment_ccexpress.jpeg"]
+    const images = ['/bg4.jpg', '/bg5.jpg', '/bg6.jpg']
     // console.log("data login : ",user)
         const [index, setIndex] = useState(0);
         const timeoutRef = useRef(null);
@@ -32,14 +29,13 @@ const Home = () => {
           return () => {
             resetTimeout();
           };
-        }, [index]);
+        }, [index, images.length]);
 
    return (
     <>
     <Navigation/>
            <div className="main">
-               <h2>WELCOME TO WTM ONLINE {userName.toUpperCase()}</h2>
-               <p>ini ceritanya gambar</p>
+               <h2>Welcome To WTM Online {userName.toUpperCase()}</h2>
                <div className="slideshow">
                    <div
                        className="slideshowSlider"
@@ -49,22 +45,10 @@ const Home = () => {
                            <div
                                className="slide"
                                key={index}>
-                            <img src={image}></img>
+                            <img src={image} style={{width:"1100px", height:"620px"}} alt=''></img>
                            </div>
                        ))}
                    </div>
-
-                   {/* <div className="slideshowDots">
-                       {colors.map((_, idx) => (
-                           <div
-                               key={idx}
-                               className={`slideshowDot${index === idx ? " active" : ""}`}
-                               onClick={() => {
-                                   setIndex(idx);
-                               }}
-                           ></div>
-                       ))}
-                   </div> */}
                </div>
            </div>
     </>

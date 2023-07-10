@@ -1,6 +1,6 @@
 import TitleMenuView from "../TitleMenuView";
 import Navigation from "../../Navigation";
-import { InvalidInputMessage, useCheckNoPO, useCheckNumber } from "../../Utils";
+import { InvalidInputMessage, useCheckNoPO } from "../../Utils";
 import { useState } from "react";
 import Modal from "../../Modal";
 const CreateStockPO = () => {
@@ -9,7 +9,6 @@ const CreateStockPO = () => {
     const [produkSeri, setProdukSeri] = useState('')
     const [merkBarang, setMerkBarang] = useState('')
     const [qtyPO, setQtyPO] = useState('')
-    // const [isNoPOExist, setIsNoPOExist] = useState(false)
     const [modal, setModal] = useState(false)
     const [message, setMessage] = useState('')
     const usernameID = localStorage.getItem("usernameID")
@@ -29,32 +28,6 @@ const CreateStockPO = () => {
                 return true
             }
     }
-    
-//    const handleInputNumber = (e) => {
-//      useCheckNumber(e)
-//    }
-
-//    const handleCheckNoPO = (e) => {
-      
-//         setNoPO(e.target.value)
-    //    if (e.target.value !== '') {
-    //        fetch('http://localhost:3001/stock/checkNoPO', {
-    //            method: 'POST',
-    //            headers: { 'Content-Type': 'application/json' },
-    //            credentials: "same-origin",
-    //            body: JSON.stringify({ noPO: e.target.value })
-    //        })
-    //            .then(response => response.json())
-    //            .then(data => {
-    //                 setIsNoPOExist(data.isNoPOExist)
-    //                if (!isNoPOExist) {
-    //                    setNoPO(e.target.value)
-    //                }
-    //             //    console.log("no. po:", noPO)
-    //            })
-    //            .catch(error => console.log(error))
-    //    }
-    // }
 
    const handleSubmit = (e) => {
     e.preventDefault()
