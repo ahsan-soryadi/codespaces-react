@@ -1,12 +1,12 @@
 import PaginationTemplate from "../PaginationTemplate";
 import { useState } from "react";
 
-const TableTemplate = (props) => {
-    const tableHeaders = props.tableHeaders
-    const tableData = props.tableData
-    let isPagingEnabled = props.isPagingEnabled
-    const setCekButton = props.setCekButton
-    const setValidateButton = props.setValidateButton
+const TableTemplate = ({tableHeaders = [], tableData = [], isPagingEnabled = true, setCekButton, setValidateButton}) => {
+    // const tableHeaders = props.tableHeaders
+    // const tableData = props.tableData
+    // let isPagingEnabled = props.isPagingEnabled
+    // const setCekButton = props.setCekButton
+    // const setValidateButton = props.setValidateButton
     // console.log("tabel data = ", tableData)
     const [currentPage, setCurrentPage] = useState(1)
     const itemsPerPage = 5;
@@ -23,6 +23,7 @@ const TableTemplate = (props) => {
             isPagingEnabled = false
         }
     } else {
+        isPagingEnabled = false
         items = [{...tableData}]
     }
 

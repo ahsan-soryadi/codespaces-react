@@ -16,6 +16,8 @@ const EditItemAllocation = () => {
     const tableHeaders = ['No', 'Serial Number', 'Jenis', 'Merk', 'Peruntukan']
     const barangData = useGetBarangBySerialNumber(serialNumber, checkStatus)
     let isSerialNumberExist = useCheckSerialNumber(serialNumber)
+
+    //perbaiki update table munculnya detail serial number 
     
     const isDisabled = () => {
         if(peruntukan.length > 0 &&
@@ -86,7 +88,7 @@ const EditItemAllocation = () => {
                                     <span><button type="button"  value="check Serial Number" className="btn btn-primary" onClick={checkSerialNumber}>Check SN</button></span>
                                     <div className='col-9'>
                                         {
-                                            (isSerialNumberExist[0] === 'true' && barangData.data) &&
+                                            (isSerialNumberExist[0] === 'true' && barangData.data ) &&
                                             <TableTemplate tableData={barangData.data} tableHeaders={tableHeaders} isPadingEnabled={false}></TableTemplate>
                                         }
                                         {

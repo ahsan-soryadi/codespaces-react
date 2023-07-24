@@ -6,7 +6,7 @@ import TitleMenuView from "../TitleMenuView";
 const AssetList = ()=> {
     const [tableData, setTableData] = useState(null);
     const [isLoading, setIsLoading] = useState(true)
-    const tableHeaders = ["Id", "Jenis Barang", "Merk", "Produk Seri", "Serial Number", "Peruntukan"];
+    const tableHeaders = ["Id", "Jenis Barang", "Produk Seri", "Merk", "Serial Number", "Peruntukan"];
     
     useEffect(()=> {
         let ignore = false;
@@ -24,7 +24,19 @@ const AssetList = ()=> {
         .then(data => {
             if(!ignore){
                 setIsLoading(false)
-                setTableData(data);
+                setTableData(data.map((item) => {
+                    const jenisBarang = item.jenisBarang.charAt(0).toUpperCase() + item.jenisBarang.slice(1)
+                    const merkBarang = item.merkBarang.charAt(0).toUpperCase() + item.merkBarang.slice(1)
+                    const produkSeri = item.produkSeri
+                    return{
+                        'id': item.id,
+                        'jenisBarang': jenisBarang,
+                        'produkSeri': produkSeri,
+                        'merkBarang': merkBarang,
+                        'serialNumber': item.serialNumber,
+                        'peruntukan': item.peruntukan
+                    }
+                }))
             }
         })
         return () => {
